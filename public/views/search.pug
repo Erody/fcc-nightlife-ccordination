@@ -1,0 +1,8 @@
+extends layout
+block content
+    .searchForm
+        form(action="/search" method="POST")
+            .searchFields
+                input(type="text" name="searchTerm" placeholder="Search for a bar/restaurant")
+                input(type="text" name="location" placeholder="Location")
+                button.btn.btn-primary Submit

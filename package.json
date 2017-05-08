@@ -1,0 +1,32 @@
+{
+  "name": "nightlife-coordination",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Erody/fcc-nightlife-ccordination.git"
+  },
+  "author": "Immo Struchholz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Erody/fcc-nightlife-ccordination/issues"
+  },
+  "homepage": "https://github.com/Erody/fcc-nightlife-ccordination#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.2",
+    "express-session": "^1.15.2",
+    "mongoose": "^4.9.8",
+    "passport": "^0.3.2",
+    "passport-github2": "^0.1.10",
+    "pug": "^2.0.0-beta.12",
+    "request": "^2.81.0",
+    "yelp-fusion": "^1.0.3"
+  }
+}

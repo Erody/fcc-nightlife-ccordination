@@ -1,0 +1,7 @@
+extends layout
+block content
+    .searchForm
+        form(action="/search/nearby" method="POST")
+            .searchFields
+                input(type="text" name="location" placeholder="Where are you?")
+                button.btn.btn-primary Submit

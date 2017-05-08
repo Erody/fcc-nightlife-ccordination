@@ -1,0 +1,67 @@
+body {
+    background-image: url('/static/images/pink dust.png');
+    background-repeat: repeat;
+}
+
+.flex-center-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-center-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.flex-center-column-item-right {
+    align-self: flex-end;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.chart {
+    padding-top: 100px;
+}
+
+.card {
+    background-color: rgba(171, 0, 12, 0.17);
+    border: 1px solid #94949d;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.card-block {
+    padding: 5px 15px 5px 15px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.checked {
+    background-color: #1db22c;
+}
+
+.two-thirds-width {
+    width: 66%;
+}
+
+.h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.grey {
+    color: rgba(255, 255, 255, 0.67);
+}
