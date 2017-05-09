@@ -5,11 +5,18 @@ block content
         each bar in nearbyBars
             .bar.card.card-block.two-thirds-width
                 .goingDisplay.grey= going + ' going'
-                p.grey= "Name: " + bar.name
+                p.grey= "Name: "
+                    span.barName= bar.name
                 p.grey= "Open: " + !bar.is_closed
                 p.grey= "Yelp URL: " + bar.url
                 p.grey= "Yelp rating: " + bar.rating
                 p.grey= "Address: " + bar.location.display_address
                 p.grey= "Distance: " + bar.distance.toFixed(2) + "m"
-                p.grey= "Phone: " + bar.display_phone
+                p.grey.phone="Phone: "
+                    span.phoneNumber= bar.display_phone
 
+block scripts
+    script(type="text/javascript").
+        const isAuthenticated = !{JSON.stringify(authenticated)};
+        const user = !{JSON.stringify(user)};
+    script(src= "/static/scripts/nearby.js", type= "text/javascript")

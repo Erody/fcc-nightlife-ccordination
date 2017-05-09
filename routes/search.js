@@ -20,7 +20,7 @@ router.post('/nearby', (req, res) => {
 			}
 			// show it in html
 			const nearbyBars = result.sort(dynamicSort('distance'));
-			res.render('nearby', {nearbyBars, going: 0}); // replace 0 with actual value
+			res.render('nearby', {nearbyBars, going: 0, authenticated: req.isAuthenticated(), user: req.user}); // replace 0 with actual value
 		})
 		.catch(err => {
 			console.log(err)
