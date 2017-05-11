@@ -10,3 +10,7 @@ exports.dynamicSort = function(property) {
 		return result * sortOrder;
 	}
 };
+
+exports.stripPhoneNumber = function(phoneNumber) {
+	return phoneNumber.match(/\d+/g).join('');
+};

@@ -6,8 +6,14 @@ html
         .navbar.navbar-default
             .container-fluid
                 .navbar-header
-                    a.navbar-brand(href="/") Nightlife coordination
+                    if authenticated
+                        a.navbar-brand(href="/changeLocation") Nightlife coordination
+                    else
+                        a.navbar-brand(href="/") Nightlife coordination
                 .collapse.navbar-collapse
+                    ul.nav.navbar-nav
+                        if authenticated
+                            li: a(href="/changeLocation") Change Location
                     ul.nav.navbar-nav.navbar-right
                         if authenticated
                             li: a(href="/auth/logout") Logout

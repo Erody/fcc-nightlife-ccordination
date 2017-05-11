@@ -1,6 +1,6 @@
 extends layout
 block content
-    .searchForm
+    .searchForm.flex-center-column
         form(action="/search/nearby" method="POST")
             .searchFields
                 input(type="text" name="location" placeholder="Where are you?")

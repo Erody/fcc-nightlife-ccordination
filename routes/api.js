@@ -1,6 +1,5 @@
 const express = require('express');
 const Bar = require('../models/Bar');
-const User = require('../models/User');
 const router = express.Router();
 
 router.post('/bars/indicateGoing', (req, res) => {
@@ -14,17 +13,21 @@ router.post('/bars/indicateGoing', (req, res) => {
 				console.error(err);
 			}
 			if(!err && bar !== null ) {
-				if(bar.going.indexOf(user._id) === -1) {
+				const index = bar.going.indexOf(user._id);
+				if(index === -1) {
 					bar.going.push(user._id);
 					bar.save((err) => {
 						if(err) {
 							console.error(err);
-						} else {
-							console.log('adding user to bar...');
 						}
 					});
 				} else {
-					console.log('user is already going to this bar');
+					bar.going.splice(index, 1);
+					bar.save((err) => {
+						if(err) {
+							console.error(err);
+						}
+					});
 				}
 
 			} else {
@@ -36,9 +39,7 @@ router.post('/bars/indicateGoing', (req, res) => {
 				newBar.going.push(user._id);
 				newBar.save((err) => {
 					if(err) {
-						console.error(err);  // handle errors!
-					} else {
-						console.log("saving bar ...");
+						console.error(err);
 					}
 				});
 			}

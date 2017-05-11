@@ -51,5 +51,5 @@ app.listen(port, () => {
 	console.log(`listening on port ${port}...`)
 });
 
-// todo make /api/bars/indicateGoing a toggle (if user is already going, remove him from that bar)
-// todo going counter for bars (just need to pull bar.going.length from db)
+// todo Make this shit pretty. Important information per bar: amount going to bar, name, address, display phone in this order
+// todo OPTIONAL: make detail view for every bar, showing links, rating, pictures(google api), etc.
