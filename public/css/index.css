@@ -65,3 +65,28 @@ body {
 .grey {
     color: rgba(255, 255, 255, 0.67);
 }
+
+.margin-top {
+    margin-top: 10px;
+}
+
+.transparent {
+    background: transparent;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.three-items {
+    min-width: 300px;
+}
+
+.horizontal-center {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}

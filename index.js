@@ -50,6 +50,3 @@ app.use('/api', apiRoutes);
 app.listen(port, () => {
 	console.log(`listening on port ${port}...`)
 });
-
-// todo Make this shit pretty. Important information per bar: amount going to bar, name, address, display phone in this order
-// todo OPTIONAL: make detail view for every bar, showing links, rating, pictures(google api), etc.

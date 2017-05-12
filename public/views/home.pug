@@ -1,7 +1,7 @@
 extends layout
 block content
-    .searchForm.flex-center-column
+    .searchForm.flex-center-column.horizontal-center
         form(action="/search/nearby" method="POST")
             .searchFields
-                input(type="text" name="location" placeholder="Where are you?")
-                button.btn.btn-primary Submit
+                input(type="text" name="location" placeholder="Where are you?").form-control
+                button.btn.btn-primary.form-control Submit

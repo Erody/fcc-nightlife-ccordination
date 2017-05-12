@@ -49,7 +49,7 @@ function yelpSearchAndRender(location, req, res) {
 		.then(response => {
 			let result = [];
 			let x = 0;
-			for(let i = 0; i<10+x; i++) {
+			for(let i = 0; i<12+x; i++) {
 				let business = response.jsonBody.businesses[i];
 				if(business.display_phone) {
 					result.push(business);
@@ -61,7 +61,7 @@ function yelpSearchAndRender(location, req, res) {
 			const nearbyBars = result.sort(dynamicSort('distance'));
 			const strippedPhoneNumbers = [];
 			nearbyBars.forEach(bar => {
-				strippedPhoneNumbers.push(stripPhoneNumber(bar.display_phone))
+				strippedPhoneNumbers.push(stripPhoneNumber(bar.display_phone));
 			});
 			Bar
 				.find({}, (err, bars) => {
@@ -73,13 +73,21 @@ function yelpSearchAndRender(location, req, res) {
 								index,
 								going: bar.going,
 							});
-							// attach going amount to nearbyBars, then put render call at the end of this find()
 						}
 					});
 					const newNearbyBars = [...nearbyBars];
 					going.forEach(item => {
 						const i = item.index;
 						newNearbyBars[i].going = item.going.length;
+						if(req.user) {
+							const userId = JSON.stringify(req.user._id);
+							item.going.forEach(itemGoing => {
+								if(userId === JSON.stringify(itemGoing)) {
+									newNearbyBars[i].userGoingTo = true;
+								}
+							})
+						}
+
 					});
 					res.render('nearby', {nearbyBars, authenticated: req.isAuthenticated(), user: req.user});
 				});

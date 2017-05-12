@@ -3,22 +3,21 @@ html
         include includes/head
         block head
     body
-        .navbar.navbar-default
-            .container-fluid
-                .navbar-header
+        .navbar.navbar-inverse.bg-inverse.navbar-toggleable-md
+            button(type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation").navbar-toggler.navbar-toggler-right
+                span.navbar-toggler-icon
+            if authenticated
+                a.navbar-brand(href="/changeLocation") Nightlife coordination
+            else
+                a.navbar-brand(href="/") Nightlife coordination
+            .collapse.navbar-collapse.justify-content-end#navbarNavAltMarkup
+                .navbar-nav
                     if authenticated
-                        a.navbar-brand(href="/changeLocation") Nightlife coordination
+                        a(href="/changeLocation").nav-item.nav-link Change Location
+                    if authenticated
+                        a(href="/auth/logout").nav-item.nav-link Logout
                     else
-                        a.navbar-brand(href="/") Nightlife coordination
-                .collapse.navbar-collapse
-                    ul.nav.navbar-nav
-                        if authenticated
-                            li: a(href="/changeLocation") Change Location
-                    ul.nav.navbar-nav.navbar-right
-                        if authenticated
-                            li: a(href="/auth/logout") Logout
-                        else
-                            li: a(href="/auth/login") Login
+                        a(href="/auth/login").nav-item.nav-link Login
         block content
         block footer
         block scripts

@@ -15,17 +15,23 @@ router.post('/bars/indicateGoing', (req, res) => {
 			if(!err && bar !== null ) {
 				const index = bar.going.indexOf(user._id);
 				if(index === -1) {
+					// add user
 					bar.going.push(user._id);
 					bar.save((err) => {
 						if(err) {
 							console.error(err);
+						} else {
+							res.json({status: 'added'})
 						}
 					});
 				} else {
+					// remove user
 					bar.going.splice(index, 1);
 					bar.save((err) => {
 						if(err) {
 							console.error(err);
+						} else {
+							res.json({status: 'removed'})
 						}
 					});
 				}
@@ -40,14 +46,12 @@ router.post('/bars/indicateGoing', (req, res) => {
 				newBar.save((err) => {
 					if(err) {
 						console.error(err);
+					} else {
+						res.json({status: 'added'})
 					}
 				});
 			}
 		});
-
-	console.log('/bars/indicateGoing hit');
-	console.log(data);
-	res.json({success: true})
 });
 
 module.exports = router;

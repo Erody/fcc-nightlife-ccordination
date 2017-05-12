@@ -1,19 +1,25 @@
 extends layout
 block content
     h1.grey.flex-center-column Nearby Bars
-    .bar-list.flex-center-column
-        each bar in nearbyBars
-            .bar.card.card-block.two-thirds-width
-                .goingDisplay.grey= (bar.going || 0) + ' going'
-                p.grey= "Name: "
-                    span.barName= bar.name
-                p.grey= "Open: " + !bar.is_closed
-                p.grey= "Yelp URL: " + bar.url
-                p.grey= "Yelp rating: " + bar.rating
-                p.grey= "Address: " + bar.location.display_address
-                p.grey= "Distance: " + bar.distance.toFixed(2) + "m"
-                p.grey.phone="Phone: "
-                    span.phoneNumber= bar.display_phone
+    .container
+        .row
+            each bar in nearbyBars
+                .col
+                    .card.text-center.card-inverse.three-items
+                        .card-header.goingAmount=(bar.going || 0) + " going to this bar"
+                        .card-block
+                            h4.card-title.barName=bar.name
+                            ul.list-group
+                                li.list-group-item.transparent=bar.location.display_address[0]
+                                li.list-group-item.transparent=bar.location.display_address[1]
+                                li.list-group-item.transparent=bar.location.display_address[2]
+                                li.list-group-item.transparent.phoneNumber=bar.display_phone
+                            if bar.userGoingTo
+                                button.btn.btn-primary.margin-top.btn-secondary.goingButton.btn-success
+                                    | You are going to this bar
+                            else
+                                button.btn.btn-primary.margin-top.btn-secondary.goingButton
+                                    | Indicate you are going to this bar
 
 block scripts
     script(type="text/javascript").
